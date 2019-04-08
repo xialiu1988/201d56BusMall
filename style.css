@@ -1,0 +1,35 @@
+
+
+body{
+    background-color: burlywood;
+
+}
+
+h1{
+   
+   text-align:center;
+   color:rebeccapurple;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+img{
+    width:20em;
+    height: 15em;
+}
+.left{
+    padding:10px;
+    margin-left:200px;
+    display: inline-block;
+    border:15px solid palevioletred;
+}
+.center{
+    padding:10px;
+    margin-left:auto;
+    display: inline;
+    border:15px solid palevioletred;
+}
+.right{
+    padding:10px;
+    border:15px solid palevioletred;
+    margin-right:auto;
+    display: inline;
+}
