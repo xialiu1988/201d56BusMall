@@ -51,13 +51,13 @@ function getUniqueImages(){
   pictureShowIndex.push(picOne);
 
   var picTwo=getRandomIndex();
-  while(picTwo===pictureShowIndex[0]){
+  while(pictureShowIndex.includes(picTwo)){
     picTwo=getRandomIndex();
   }
   pictureShowIndex.push(picTwo);
 
   var picThree=getRandomIndex();
-  while(picThree===pictureShowIndex[0]||picThree===pictureShowIndex[0]){
+  while(pictureShowIndex.includes(picThree)){
     picThree=getRandomIndex();
   }
   pictureShowIndex.push(picThree);
@@ -93,20 +93,20 @@ function newset(){
 
   }
   //picture on the leftside
-  img1.name=products[pictureShowIndex[0]].name;
-  img1.src=products[pictureShowIndex[0]].src;
-  products[pictureShowIndex[0]].shown++;
+  img1.name=products[newIndex[0]].name;
+  img1.src=products[newIndex[0]].src;
+  products[newIndex[0]].shown++;
 
   //picture in the middle
-  img2.name=products[pictureShowIndex[1]].name;
-  img2.src=products[pictureShowIndex[1]].src;
-  products[pictureShowIndex[1]].shown++;
+  img2.name=products[newIndex[1]].name;
+  img2.src=products[newIndex[1]].src;
+  products[newIndex[1]].shown++;
 
   //picture on the rightside
-  img3.name=products[pictureShowIndex[2]].name;
-  img3.src=products[pictureShowIndex[2]].src;
-  products[pictureShowIndex[2]].shown++;
-
+  img3.name=products[newIndex[2]].name;
+  img3.src=products[newIndex[2]].src;
+  products[newIndex[2]].shown++;
+  pictureShowIndex=newIndex;
 }
 
 function clickNumber(event){
@@ -122,18 +122,77 @@ function clickNumber(event){
     img1.removeEventListener('click',clickNumber,false);
     img2.removeEventListener('click',clickNumber,false);
     img3.removeEventListener('click',clickNumber,false);
-    displayList();
+    displayChart();
   }
 }
 
-function displayList(){
-  var container=document.getElementById('lists');
-  for(var ii=0;ii<products.length;ii++){
-    var liEl=document.createElement('li');
-    liEl.textContent=products[ii].clicked+'  for  '+ products[ii].name;
-    container.appendChild(liEl);
+//display barchart
+function displayChart(){
+  var ctx = document.getElementById('chart').getContext('2d');
+  var data = {
+    labels: [],
+    datasets: [
+      {
+        label: 'Total votes',
+        backgroundColor: [
+          '#ff8000',
+          '#00ffff',
+          '#ff0040',
+          '#8000ff',
+          '#ffb3b3',
+          '#ff4dc4',
+          '#cc8800',
+          '#002966',
+          '#1a75ff',
+          '#bfff00',
+          '#ff3333',
+          '#bf00ff',
+          '#66ff99',
+          '#75a3a3',
+          '#0055ff',
+          '#ff8080',
+          '#999966',
+          '#00ff55',
+          '#b30000',
+          '#4BC0C0'
+        ],
+        borderColor: [
+          '#4BC0C0',
+          '#9966C0',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#4BC0C0',
+          '#9966C0',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#4BC0C0',
+          '#9966C0',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#4BC0C0',
+          '#9966C0',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56'
+        ],
+        borderWidth: 1,
+        data: [],
+      }
+    ],
+  };
+  for(var i=0;i<products.length;i++){
+    data.labels.push(products[i].name);
+    data.datasets[0].data.push(products[i].clicked);
   }
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+  });
 }
+
 
 img1.addEventListener('click',clickNumber);
 img2.addEventListener('click',clickNumber);
