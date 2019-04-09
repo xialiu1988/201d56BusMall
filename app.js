@@ -82,15 +82,26 @@ function render(){
 
   }
 }
-
+//compare two arrays see if one array contains any item of another array, if does return true, else return false
+function compareArrays(arr1,arr2){
+  var boo=false;
+  for(var jj=0;jj<arr1.length;jj++){
+    if(arr2.includes(arr1[jj]))
+    {
+      boo=true;
+      break;
+    }
+  }
+  return boo;
+}
 function newset(){
   var previousIndex=pictureShowIndex;
   var newIndex=getUniqueImages();
-
-  while(previousIndex[0]===newIndex[0]||previousIndex[1]===newIndex[0]||previousIndex[2]===newIndex[0]){
-
+  var b=compareArrays(previousIndex,newIndex);
+  while(b===true){
+    previousIndex=newIndex;
     newIndex=getUniqueImages();
-
+    b=compareArrays(previousIndex,newIndex);
   }
   //picture on the leftside
   img1.name=products[newIndex[0]].name;
@@ -117,6 +128,7 @@ function clickNumber(event){
   }
   if(totalClicks<25){
     newset();
+    console.log(pictureShowIndex);
   }
   else{
     img1.removeEventListener('click',clickNumber,false);
