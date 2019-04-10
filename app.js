@@ -15,6 +15,14 @@ function Product(name,src){
   products.push(this);
 }
 
+//check if localstorage has data if has data display the chart show previous record,if not create new instances
+if (localStorage.getItem('storeData')){
+  products=JSON.parse(localStorage.getItem('storeData'));
+  displayChart();
+}
+else{
+  createinstances();
+}
 function createinstances(){
   new Product('bag','assets/bag.jpg');
   new Product('banana','assets/banana.jpg');
@@ -38,7 +46,7 @@ function createinstances(){
   new Product('wine-glass','assets/wine-glass.jpg');
 }
 
-createinstances();
+//createinstances();
 
 function getRandomIndex(){
   var ranNum=Math.floor(Math.random()*(products.length));
@@ -135,7 +143,14 @@ function clickNumber(event){
     img2.removeEventListener('click',clickNumber,false);
     img3.removeEventListener('click',clickNumber,false);
     displayChart();
+    storeResult();
   }
+}
+
+//set up localstorage
+function storeResult(){
+  var productsData=JSON.stringify(products);
+  localStorage.setItem('storeData',productsData);
 }
 
 //display barchart
@@ -210,4 +225,11 @@ img1.addEventListener('click',clickNumber);
 img2.addEventListener('click',clickNumber);
 img3.addEventListener('click',clickNumber);
 
+var res=document.getElementById('resetbtn');
+res.addEventListener('click',resetData);
+function resetData(event){
+  event.preventDefault();
+  window.location.reload();
+  localStorage.clear();
+}
 render();
