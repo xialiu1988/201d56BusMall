@@ -24,26 +24,26 @@ else{
   createinstances();
 }
 function createinstances(){
-  new Product('bag','/assets/bag.jpg');
-  new Product('banana','/assets/banana.jpg');
-  new Product('bathroom','/assets/bathroom.jpg');
-  new Product('boots','/assets/boots.jpg');
-  new Product('breakfast','/assets/breakfast.jpg');
-  new Product('bubblegum','/assets/bubblegum.jpg');
-  new Product('chair','/assets/chair.jpg');
-  new Product('cthulhu','/assets/cthulhu.jpg');
-  new Product('dog-duck','/assets/dog-duck.jpg');
-  new Product('dragon','/assets/dragon.jpg');
-  new Product('pen','/assets/pen.jpg');
-  new Product('pet-sweep','/assets/pet-sweep.jpg');
-  new Product('scissors','/assets/scissors.jpg');
-  new Product('shark','/assets/shark.jpg');
-  new Product('sweep','/assets/sweep.png');
-  new Product('tauntaun','/assets/tauntaun.jpg');
-  new Product('unicorn','/assets/unicorn.jpg');
-  new Product('usb','/assets/usb.gif');
-  new Product('water-can','/assets/water-can.jpg');
-  new Product('wine-glass','/assets/wine-glass.jpg');
+  new Product('bag','Assets/bag.jpg');
+  new Product('banana','Assets/banana.jpg');
+  new Product('bathroom','Assets/bathroom.jpg');
+  new Product('boots','Assets/boots.jpg');
+  new Product('breakfast','Assets/breakfast.jpg');
+  new Product('bubblegum','Assets/bubblegum.jpg');
+  new Product('chair','Assets/chair.jpg');
+  new Product('cthulhu','Assets/cthulhu.jpg');
+  new Product('dog-duck','Assets/dog-duck.jpg');
+  new Product('dragon','Assets/dragon.jpg');
+  new Product('pen','Assets/pen.jpg');
+  new Product('pet-sweep','Assets/pet-sweep.jpg');
+  new Product('scissors','Assets/scissors.jpg');
+  new Product('shark','Assets/shark.jpg');
+  new Product('sweep','Assets/sweep.png');
+  new Product('tauntaun','Assets/tauntaun.jpg');
+  new Product('unicorn','Assets/unicorn.jpg');
+  new Product('usb','Assets/usb.gif');
+  new Product('water-can','Assets/water-can.jpg');
+  new Product('wine-glass','Assets/wine-glass.jpg');
 }
 
 //createinstances();
